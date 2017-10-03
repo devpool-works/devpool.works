@@ -1,0 +1,34 @@
+# Travis pipeline for building, testing and deploying 
+# the most epic website in the history of the internet
+language: python
+python:
+- '3.3'
+- pypy
+
+# Stuff to do before we install the prerequisites
+before_install:
+
+# Prerequisites
+install:
+- pip install "Nikola[extras]"
+
+# Do little setup things here
+before_script: 
+
+# The actual build and test happens here.
+script:
+- echo "EPIC WIN"
+
+#  Deploy happens on a good build.
+# https://docs.travis-ci.com/user/deployment/pages/
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
+
+# When we're done, tell the team about it.
+notifications:
+  slack:
+    secure: SlRkSEKTHl8cNKY63mp+2rFWVG+NvuUyo1Fwzd/3WaH+ghfFlheYkckZHKti9SRdQO+JBWba6bYoX7uEJAD+zKko1Ej6XU2b0t1MGTDxLj5aFbWO+XRNDztSqaf98K7T63wwN9ErlRM0LTQ4nPPvWyl22uiJbkS/jWvzozutvZToi7GLfJrvhcSJ4Su3qaouhHohqOSXRRtyqBvgwqqywZayGVpMrUv4aj+NyFG7il9FM9hdYZ5+ha5wL9tI4664m0NyonsUIxxyjjS9Oz+GAbvNshMoHuxrHFz9kKhKU9BFP5GzsR7ZPxZS0idJfeFtktygp9+icU6EzhVyAUpx/dxATj66xtnnRE40vmnzLwQkUOg/G4lb6frWq8AGr7AU/Rr8lOWiq7JH0XzRD9QTUOVAtvIQ3GYPYjyQ6t3w9vJkcOOnJVRldvK5cKiO6n9nnH58mufM7h4l5jU8aIANfhwj+/U4XzLKJcmhJxS4ZHZitpm+BXfdBymblkm6bAdlyCVC2GJ9tAFFHxFaT7884VmPAumhe+Gh8jbzhPNwrrZlXiVqcGsuZQuZYrpO85IDINagg3Jc0F/obsUyEYzoLNpVJtN9i5/X+Gcs00iFH5osqaHH2+jApeWi3CrFRwKvv2tRtlz7bag2cRmO+2bMmqs0NbJXrW3glN/CuxKfPSA=
