@@ -3,3 +3,7 @@
 # devpool.works
 
 The frikkin website, yo.
+
+# How to build the website
+
+The website is built with [Nikola](https://getnikola.com) - see their documentation for how to install and get the dev environment set up.
